@@ -9,7 +9,8 @@ public class Car
        int d,e,h;
        Scanner o;
         o = new Scanner(System.in);
-       car obj[]= new car[2];
+       cars obj[]= new cars[2];
+       owner obj1[] = new owner[2];
        for(int i=0;i<obj.length;i++)
        {
            
@@ -31,12 +32,14 @@ public class Car
            h=o.nextInt();
            System.out.println();
            System.out.println();
-           obj[i]=new car(a,b,c,d,f,e,g,h);
-           
+           obj1[i]=new owner(a,b,c);
+           obj[i]=new cars(d,f,e,g,h);    
        }
        for(int i=0;i<obj.length;i++)
        {
-           System.out.println(obj[i]);
+           System.out.println("Car Details: "+(i+1));
+           System.out.println(obj1[i].tostring());
+           System.out.println(obj[i].tostring());
        }
     }
     
@@ -64,19 +67,16 @@ class owner
         return "\nOwner Name:"+name+"\nOwner City:"+city+"\nOwner profession:"+profession;
     }
 }
-class car extends owner
+class cars 
 {
     int re_num,seat,model;
     String color,brand;
-    car (String names,String cities,String professions,int reg,String cr,int seats,String brands,int models){
+    cars (int reg,String cr,int seats,String brands,int models){
         re_num =reg;
         color=cr;
         seat=seats;
         brand=brands;
         model=models;
-        name = names;
-        city = cities;
-        profession = professions;
     }
     int getregis(){
         return re_num;
@@ -93,9 +93,8 @@ class car extends owner
     int getmodel(){
         return model;
     }
-    @Override
     public String tostring()
     {
-        return "Car Details:"+"\nOwner Name:"+name+"\nOwner City:"+city+"\nOwner profession:"+profession+"\nRegistration Number"+re_num+"\nColour:"+color+"\nSeats:"+seat+"\nBrands:"+brand+"\nModel:"+model;
+        return "\nRegistration Number:"+re_num+"\nColour:"+color+"\nSeats:"+seat+"\nBrands:"+brand+"\nModel:"+model;
     }
 }
